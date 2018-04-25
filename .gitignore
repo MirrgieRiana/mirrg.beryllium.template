@@ -1,1 +1,10 @@
-.gradle
+
+/.settings/
+
+/.classpath
+/bin/
+
+/.gradle/
+/build/
+
+/backup/
