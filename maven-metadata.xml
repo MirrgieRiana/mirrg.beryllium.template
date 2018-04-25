@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>mirrg</groupId>
+  <artifactId>mirrg.beryllium.template</artifactId>
+  <version>0.0.0</version>
+  <versioning>
+    <versions>
+      <version>0.0.0</version>
+    </versions>
+    <lastUpdated>20180425114641</lastUpdated>
+  </versioning>
+</metadata>
