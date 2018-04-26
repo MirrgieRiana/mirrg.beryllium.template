@@ -6,9 +6,9 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 /**
- * インスタンスを生成せず静的メンバを呼び出す為のクラスは末尾にUtilをつけます。
+ * インスタンスを生成せず静的メンバを呼び出す為のクラスは、インターフェースとして宣言して末尾にUtilをつけます。
  */
-public class TemplateUtil
+public interface TemplateUtil
 {
 
 	public static final String TEMPLATE = "Template";
