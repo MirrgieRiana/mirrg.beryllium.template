@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  * テストクラスはTestで始めます。
- * パッケージはメインソースと同じにします。
+ * パッケージはテスト対象に合わせます。
  */
 public class Test1
 {

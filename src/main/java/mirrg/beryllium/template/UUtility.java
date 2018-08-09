@@ -6,58 +6,59 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 /**
- * インスタンスを生成せず静的メンバを呼び出す為のクラスは、インターフェースとして宣言して末尾にUtilをつけます。
+ * ユーティリティクラスはほぼstaticメンバだけで構成されます。
+ * 先頭にUtilitiesを表すUを付けます。
  */
-public interface TemplateUtil
+public class UUtility
 {
 
 	public static final String TEMPLATE = "Template";
 
-	public static String template(String string)
+	public static String convertAndPrint(String string)
 	{
 		System.out.println(string);
-		return "Template";
+		return string + string;
 	}
 
 	/**
-	 * @param inter
+	 * @param material
 	 *            フィールドや変数の名前にはインターフェースの先頭のiを付けません。
 	 */
-	public static String template(IInter inter)
+	public static String convertAndPrint(IMaterial material)
 	{
-		return template(inter.method("a"));
+		return convertAndPrint(material.getLocalizedName("ja_JP"));
 	}
 
 	/**
-	 * @param sInter
+	 * @param sMaterial
 	 *            Supplierなどの一部の型には短いプレフィクスを付けます。
 	 */
-	public static String template(Supplier<IInter> sInter)
+	public static String convertAndPrint(Supplier<IMaterial> sMaterial)
 	{
-		return template(sInter.get());
+		return convertAndPrint(sMaterial.get());
 	}
 
 	/**
-	 * @param osInter
+	 * @param osMaterial
 	 *            クラスが入れ子構造になっている場合、中間のプレフィクス部分は小文字で表記します。
 	 */
-	public static String template(Optional<Supplier<IInter>> osInter)
+	public static String convertAndPrint(Optional<Supplier<IMaterial>> osMaterial)
 	{
-		Supplier<IInter> sInter = osInter.get();
-		IInter inter = sInter.get();
-		return template(inter);
+		Supplier<IMaterial> sMaterial = osMaterial.get();
+		IMaterial material = sMaterial.get();
+		return convertAndPrint(material);
 	}
 
 	/**
 	 * 例外クラスの変数やラムダ式の引数は1文字に短縮することができます。
 	 *
-	 * @param fInter
+	 * @param fMaterial
 	 *            関数の引数部分のプレフィクスは省略します。
 	 */
-	public static String template(Function<UnaryOperator<String>, IInter> fInter)
+	public static String convertAndPrint(Function<UnaryOperator<String>, IMaterial> fMaterial)
 	{
 		try {
-			return template(fInter.apply(s -> s + s));
+			return convertAndPrint(fMaterial.apply(s -> s + s));
 		} catch (Exception e) {
 			return "";
 		}
